@@ -1,9 +1,50 @@
-# Dropout Early Warning System
+# 🎓 Dropout Early Warning System
 
-AI-powered early warning system for predicting student dropout risk.
+نظام إنذار مبكر للتسرب الدراسي يعتمد على تعلم الآلة لتحليل مؤشرات الطالب وتقدير احتمال التسرب، مع لوحة تحكم عربية تفاعلية مناسبة للعرض الأكاديمي والنشر كموقع ويب.
 
-## Project structure
-- `app.py` — application/API
-- `generate_and_train.py` — data generation and model training
-- `data/students.csv` — student dataset
-- `models/` — trained models and evaluation metrics
+## ما الذي يحتويه النظام؟
+- لوحة تحكم بإحصاءات الطلاب وتوزيع مستويات الخطر.
+- تحليل طالب جديد والتنبؤ باحتمال التسرب.
+- قائمة الطلاب مع البحث والفلترة.
+- مقارنة Logistic Regression وXGBoost عبر Accuracy وPrecision وRecall وF1 وROC-AUC.
+- تحليل أهمية المتغيرات.
+- خمس حالات محاكاة جاهزة للتجربة.
+- توصيات تدخل مبكر حسب مؤشرات الخطر.
+- RTL ودعم واجهة عربية متجاوبة.
+
+## التشغيل محلياً
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+إذا لم تكن ملفات النماذج موجودة، سيقوم `app.py` تلقائياً بتشغيل `generate_and_train.py` في أول تشغيل، لذلك لا يلزم حفظ ملفات النماذج الثنائية داخل Git.
+
+## النشر كموقع حقيقي
+المشروع مهيأ للنشر على خدمات تدعم Streamlit أو Docker.
+
+### Streamlit Community Cloud
+1. افتح مستودع GitHub.
+2. أنشئ تطبيقاً جديداً من هذا المستودع.
+3. اختر `app.py` كملف التشغيل.
+4. اختر Python 3.11 إن كان الخيار متاحاً.
+5. سيتم تثبيت `requirements.txt` ثم تشغيل التطبيق.
+
+### Docker
+```bash
+docker build -t dropout-ews .
+docker run -p 8501:8501 dropout-ews
+```
+ثم افتح `http://localhost:8501`.
+
+## بنية المشروع
+- `app.py` — تطبيق Streamlit الرئيسي.
+- `generate_and_train.py` — إنشاء البيانات وتدريب النموذجين.
+- `requirements.txt` — الاعتمادات اللازمة للنشر.
+- `Dockerfile` — تشغيل التطبيق داخل Docker.
+- `.streamlit/config.toml` — إعدادات Streamlit.
+- `.github/workflows/ci.yml` — اختبار تلقائي وبناء النماذج في GitHub Actions.
+- `data/` و`models/` — يمكن إنشاؤهما تلقائياً عند أول تشغيل.
+
+## ملاحظة أكاديمية
+البيانات المستخدمة في النسخة الحالية بيانات محاكاة لأغراض المشروع والاختبار، وليست سجلات طلاب حقيقية. نتائج التنبؤ لا تعني أن التسرب سيحدث فعلياً؛ هي مؤشرات لدعم قرار المرشد الأكاديمي.
