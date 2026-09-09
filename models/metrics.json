@@ -1,0 +1,53 @@
+{
+  "logistic_regression": {
+    "accuracy": 0.76,
+    "precision": 0.5641025641025641,
+    "recall": 0.7586206896551724,
+    "f1": 0.6470588235294118,
+    "roc_auc": 0.8193297717338514
+  },
+  "xgboost": {
+    "accuracy": 0.758,
+    "precision": 0.577922077922078,
+    "recall": 0.6137931034482759,
+    "f1": 0.5953177257525084,
+    "roc_auc": 0.7889849441476444
+  },
+  "feature_importance_xgb": {
+    "failed_courses": 0.16017603874206543,
+    "previous_warnings": 0.12581178545951843,
+    "late_submissions": 0.0917811319231987,
+    "gpa": 0.07934778183698654,
+    "attendance": 0.0713023766875267,
+    "absences": 0.06614454090595245,
+    "first_generation": 0.05499522387981415,
+    "system_activity": 0.05332222208380699,
+    "credits_completed": 0.0507371611893177,
+    "participation": 0.0505359061062336,
+    "financial_aid": 0.04917619377374649,
+    "age": 0.04908396303653717,
+    "assignment_rate": 0.049026135355234146,
+    "online_ratio": 0.048559438437223434
+  },
+  "feature_importance_lr": {
+    "failed_courses": 0.6827402788683188,
+    "previous_warnings": 0.5928626584421223,
+    "gpa": 0.551460850065704,
+    "late_submissions": 0.4819744945080132,
+    "absences": 0.30625494459674185,
+    "attendance": 0.21713548629512003,
+    "credits_completed": 0.19138906016649723,
+    "assignment_rate": 0.16757916570764642,
+    "system_activity": 0.16654482642850849,
+    "first_generation": 0.16207912455983628,
+    "participation": 0.14707405711716315,
+    "financial_aid": 0.06898131348230581,
+    "age": 0.061236840416539595,
+    "online_ratio": 0.051152047085571535
+  },
+  "feature_names": ["gpa", "attendance", "failed_courses", "assignment_rate", "participation", "late_submissions", "system_activity", "previous_warnings", "absences", "credits_completed", "age", "financial_aid", "first_generation", "online_ratio"],
+  "best_model": "logistic_regression",
+  "n_train": 1500,
+  "n_test": 500,
+  "dropout_rate": 0.289
+}
